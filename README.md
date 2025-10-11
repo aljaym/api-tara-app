@@ -142,6 +142,27 @@ api-tara-app/
   - Query execution and optimization
   - User management
 
+## 🧪 PHPUnit Testing
+
+This project includes comprehensive PHPUnit tests for all authentication endpoints and API functionality.
+
+### Running Tests
+
+```bash
+# Run all tests
+docker exec laravel_app php artisan test
+
+# Run only AuthTest
+docker exec laravel_app php artisan test --filter=AuthTest
+```
+
+### Test Coverage
+
+- **Authentication Tests**: User registration, login, logout, profile access
+- **API Endpoints**: Health check, protected routes, validation
+- **Security Tests**: Token validation, unauthorized access prevention
+- **Data Integrity**: Password hashing, data sanitization
+
 ## 🔧 Development Commands
 
 ### Container Management

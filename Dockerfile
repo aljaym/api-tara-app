@@ -14,3 +14,17 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /var/www/html
+
+# Copy application files
+COPY src/ /var/www/html/
+
+# Install dependencies (vendor will not be overridden by volume mounting)
+RUN composer install --no-dev --optimize-autoloader
+
+# Copy optimized PHP configuration
+COPY ./php/php.ini /usr/local/etc/php/conf.d/99-custom.ini
+
+# Set proper permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html/storage \
+    && chmod -R 755 /var/www/html/bootstrap/cache

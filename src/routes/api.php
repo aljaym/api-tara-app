@@ -21,7 +21,7 @@ Route::get('/health', function () {
         'status' => 'ok',
         'message' => 'API is running',
         'timestamp' => now()->toISOString(),
-        'version' => '1.0.0'
+        'version' => '1.0.10'
     ]);
 });
 

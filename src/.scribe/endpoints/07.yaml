@@ -1,0 +1,113 @@
+name: 'Feed Discovery'
+description: |-
+
+  APIs for discovering new events and content
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/feed/discover
+    metadata:
+      groupName: 'Feed Discovery'
+      groupDescription: |-
+
+        APIs for discovering new events and content
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Discover new events and content'
+      description: ''
+      authenticated: false
+      deprecated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      category:
+        name: category
+        description: 'Filter by event category.'
+        required: false
+        example: Travel
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      location:
+        name: location
+        description: 'Filter by location.'
+        required: false
+        example: Baguio
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      page:
+        name: page
+        description: 'Page number for pagination.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      per_page:
+        name: per_page
+        description: 'Number of items per page.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      category: Travel
+      location: Baguio
+      page: 1
+      per_page: 20
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "data": {
+              "data": [
+                {
+                  "id": 1,
+                  "title": "Baguio Mountain Trek",
+                  "description": "Amazing mountain trekking experience",
+                  "location": "Baguio, Philippines",
+                  "start_date": "2024-01-15",
+                  "category": "Adventure",
+                  "user": {
+                    "id": 1,
+                    "name": "John Doe"
+                  }
+                }
+              ],
+              "pagination": {
+                "current_page": 1,
+                "last_page": 5,
+                "per_page": 20,
+                "total": 100
+              }
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -13,10 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Seed users first
+        $this->call(UserSeeder::class);
+
         // Seed admin user
         $this->call(AdminSeeder::class);
 
-        // Create additional test users if needed
-        // User::factory(10)->create();
+        // Seed follow relationships
+        $this->call(FollowSeeder::class);
+
+        // Seed events and posts
+        $this->call(EventSeeder::class);
+        $this->call(PostSeeder::class);
     }
 }
